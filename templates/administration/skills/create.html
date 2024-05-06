@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <main id="main">
+        <a href="/administration/skills"><button class="btn btn-primary mb-5 mt-5 ms-5">BACK</button></a>
+        {% for message in messages %}
+            <div class="alert alert-danger" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+        <form method="POST" class="mx-5 d-flex flex-column">
+            
+            {% csrf_token %}
+            <div class="w-100 d-flex">
+                <div class=" d-flex w-25">
+                    <label for="inputText" class="me-2">Langage</label>
+                    <input id='inputText' type="text" name='langage'>
+                </div>
+                <input type="range" class='w-50' name="level">
+            </div>
+            <input class='btn btn-outline-success w-25 my-5' type="submit" value="Add">
+        </form>
+    </main>
+
+{% endblock content %}
